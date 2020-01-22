@@ -1,27 +1,22 @@
 package com.scs.soft.zhihu.api.mapper;
 
 import com.scs.soft.zhihu.api.ZhihuApiApplication;
+import com.scs.soft.zhihu.api.domain.entity.Favorite;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
+
 import java.util.List;
-import java.util.Map;
 
 @SpringBootTest(classes = ZhihuApiApplication.class)
-class SpecialMapperTest {
+class FavortieMapperTest {
+
     @Resource
-    private SpecialMapper specialMapper;
-
+    private FavoriteMapper favortieMapper;
     @Test
-    void selectAll() {
-        List<Map> list = specialMapper.selectByPage(1,2);
-        list.forEach(System.out::println);
-    }
-
-    @Test
-    void selectRecent() {
-        List<Map> list = specialMapper.selectRecent();
+    void selectByPage() {
+        List<Favorite> list = favortieMapper.selectByPage(0,4);
         list.forEach(System.out::println);
     }
 }

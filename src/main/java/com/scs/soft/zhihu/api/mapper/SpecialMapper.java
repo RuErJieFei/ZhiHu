@@ -41,7 +41,7 @@ public interface SpecialMapper {
      *
      * @return
      */
-    @Select("SELECT * FROM t_special ORDER BY updated DESC ")
+    @Select("SELECT * FROM t_special ORDER BY updated DESC LIMIT #{dealCount} , #{count} ")
     @Results({
             @Result(id = true, property = "specialId", column = "special_id", javaType = String.class),
             @Result(property = "title", column = "title", javaType = String.class),
@@ -53,5 +53,5 @@ public interface SpecialMapper {
             @Result(property = "sections", column = "special_id",
                     many = @Many(select = "com.scs.soft.zhihu.api.mapper.SectionMapper.getSectionsBySpecialId")),
     })
-    List<Map> selectAll();
+    List<Map> selectByPage(int dealCount, int count);
 }

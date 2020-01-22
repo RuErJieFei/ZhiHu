@@ -15,7 +15,7 @@ public interface SpecialService {
      *
      * @return
      */
-    List<Map> selectAll();
+    List<Map> selectByPage();
 
     /**
      * 查询最近专题

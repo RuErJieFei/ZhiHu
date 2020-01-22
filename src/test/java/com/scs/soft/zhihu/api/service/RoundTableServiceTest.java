@@ -1,27 +1,29 @@
-package com.scs.soft.zhihu.api.mapper;
+package com.scs.soft.zhihu.api.service;
 
 import com.scs.soft.zhihu.api.ZhihuApiApplication;
+import com.scs.soft.zhihu.api.domain.entity.RoundTable;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
 
 @SpringBootTest(classes = ZhihuApiApplication.class)
-class SpecialMapperTest {
+class RoundTableServiceTest {
     @Resource
-    private SpecialMapper specialMapper;
+    private RoundTableService roundTableService;
 
     @Test
     void selectAll() {
-        List<Map> list = specialMapper.selectByPage(1,2);
-        list.forEach(System.out::println);
     }
 
     @Test
     void selectRecent() {
-        List<Map> list = specialMapper.selectRecent();
+    }
+
+    @Test
+    void selectByPage() throws Exception {
+        List<RoundTable> list = roundTableService.selectByPage(2, 9);
         list.forEach(System.out::println);
     }
 }

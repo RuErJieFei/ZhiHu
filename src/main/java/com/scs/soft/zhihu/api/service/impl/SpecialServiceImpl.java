@@ -21,8 +21,8 @@ public class SpecialServiceImpl implements SpecialService {
     private SpecialMapper specialMapper;
 
     @Override
-    public List<Map> selectAll() {
-        return specialMapper.selectAll();
+    public List<Map> selectByPage() {
+        return specialMapper.selectByPage(1,2);
     }
 
     @Override

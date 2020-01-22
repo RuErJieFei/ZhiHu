@@ -28,6 +28,6 @@ public class SpecialController {
 
     @GetMapping(value = "/all")
     public Result getAll() {
-        return Result.success(specialService.selectAll());
+        return Result.success(specialService.selectByPage());
     }
 }

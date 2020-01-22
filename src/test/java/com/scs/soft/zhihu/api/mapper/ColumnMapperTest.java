@@ -1,27 +1,22 @@
 package com.scs.soft.zhihu.api.mapper;
 
 import com.scs.soft.zhihu.api.ZhihuApiApplication;
+import com.scs.soft.zhihu.api.domain.entity.Column;
+import com.scs.soft.zhihu.api.domain.vo.ExploreVo;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
 
 @SpringBootTest(classes = ZhihuApiApplication.class)
-class SpecialMapperTest {
+class ColumnMapperTest {
     @Resource
-    private SpecialMapper specialMapper;
+    private ColumnMapper columnMapper;
 
     @Test
-    void selectAll() {
-        List<Map> list = specialMapper.selectByPage(1,2);
-        list.forEach(System.out::println);
-    }
-
-    @Test
-    void selectRecent() {
-        List<Map> list = specialMapper.selectRecent();
+    void selectByPage() {
+        List<Column> list = columnMapper.selectByPage(2, 2);
         list.forEach(System.out::println);
     }
 }
